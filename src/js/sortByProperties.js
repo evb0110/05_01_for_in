@@ -1,6 +1,6 @@
 const makeUnsortedArray = (obj) => {
   const result = [];
-  for (prop in obj) {
+  for (const prop in obj) {
     if (obj.hasOwnProperty(prop)) {
       result.push({
         key: prop,
