@@ -4,5 +4,9 @@
     "es6": true,
     "browser": true,
     "jest": true
+  },
+  "rules": {
+    "no-restricted-syntax": "off",
+    "no-prototype-builtins": "off"
   }
 }
