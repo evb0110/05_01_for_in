@@ -14,7 +14,9 @@ const makeUnsortedArray = (obj) => {
 const sortByProperties = (initialObj, importantProps) => {
   const unsortedArray = makeUnsortedArray(initialObj);
   const importantArray = unsortedArray.filter(obj => importantProps.includes(obj.key));
+  // will be sorted by the importance of properties
   const unimportantArray = unsortedArray.filter(obj => !importantProps.includes(obj.key));
+  // will be sorted by the alphabetical value of properties
   const importantArraySorted = importantArray.sort((a, b) =>
     importantProps.indexOf(a.key) - importantProps.indexOf(b.key));
   const unimportantArraySorted = unimportantArray.sort((a, b) =>

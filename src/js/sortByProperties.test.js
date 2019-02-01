@@ -110,3 +110,49 @@ test('testing with all props unimportant, only lexicographic sort', () => {
   expect(sortByProperties(obj, importantProps)).toEqual(expected);
 });
 
+test('testing for object with some properties from prototype', () => {
+// This test is made to ensure 100%-coverage, since the function under test
+// checks obj.hasOwnProperty()
+
+  const importantProps = ["width", "height", "color"];
+
+  const protoobj = {
+    color: 'red',
+  };
+  const trueobj = {
+    name: "мечник",
+    health: 10,
+    level: 2,
+    attack: 80,
+    defence: 40
+  };
+  const obj = {...trueobj };
+  Object.setPrototypeOf(obj, protoobj);
+
+  const expected = [
+    {
+      key: "attack",
+      value: 80
+    }, 
+    {
+      key: "defence",
+      value: 40
+    }, 
+    {
+      key: "health",
+      value: 10
+    }, 
+    {
+      key: "level",
+      value: 2
+    }, 
+    {
+      key: "name",
+      value: "мечник"
+    }, 
+  ];
+  
+  expect(sortByProperties(obj, importantProps)).toEqual(expected);
+
+});
+
