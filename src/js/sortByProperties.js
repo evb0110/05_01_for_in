@@ -18,8 +18,7 @@ const sortByProperties = (initialObj, importantProps) => {
   const importantArraySorted = importantArray.sort((a, b) =>
     importantProps.indexOf(a.key) - importantProps.indexOf(b.key));
   const unimportantArraySorted = unimportantArray.sort((a, b) =>
-    a.key < b.key ? -1 :
-    a.key == b.key ? 0 : 1);
+    a.key < b.key ? -1 : 1);
   return [...importantArraySorted, ...unimportantArraySorted];
 }
 
